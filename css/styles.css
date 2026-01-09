@@ -35,7 +35,7 @@ header button:hover {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
   padding: 20px;
-  margin-top: 20px; /* tarpas nuo headerio */
+  margin-top: 20px; 
 }
 
 .product-card {
@@ -57,7 +57,7 @@ header button:hover {
 .product-image {
   width: 100%;
   height: 280px;
-  object-fit: cover; /* apkarpo, bet išlaiko proporcijas */
+  object-fit: cover; 
   background: #f0f0f0;
   border-radius: 6px 6px 0 0;
 }
@@ -85,7 +85,7 @@ header button:hover {
 
 /* ================== PRODUCT PAGE ================== */
 #product-details {
-  margin-top: 20px; /* tarpas nuo headerio */
+  margin-top: 20px; 
   padding: 20px;
 }
 
@@ -177,17 +177,17 @@ form button[type="submit"]:hover {
   }
 
   #catalog {
-    grid-template-columns: 1fr; /* viena kortelė per eilę */
+    grid-template-columns: 1fr; 
     gap: 10px;
     padding: 10px;
   }
 
   .product-card {
-    width: 100%; /* užima visą plotį */
+    width: 100%; 
   }
 
   .product-image {
-    height: 150px; /* mobiliai */
+    height: 150px; 
     object-fit: cover;
   }
 

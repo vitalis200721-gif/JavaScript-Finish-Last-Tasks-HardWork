@@ -21,7 +21,8 @@ async function fetchProduct() {
     displayProduct(product);
   } catch (error) {
     console.error(error);
-    main.innerHTML = '<p>Failed to load product. Maybe it was deleted or ID is wrong.</p>';
+    main.innerHTML =
+      '<p>Failed to load product. Maybe it was deleted or ID is wrong.</p>';
   }
 }
 
@@ -41,25 +42,35 @@ function displayProduct(product) {
     </div>
   `;
 
-  document.getElementById('delete-btn').addEventListener('click', () => deleteProduct(product.id));
-  document.getElementById('back-btn').addEventListener('click', () => {
-    window.location.href = 'index.html';
-  });
+  document
+    .getElementById('delete-btn')
+    .addEventListener('click', () => deleteProduct(product.id));
+
+  document
+    .getElementById('back-btn')
+    .addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
 }
 
-async function deleteProduct(id) {
+function deleteProduct(id) {
   if (!confirm('Are you sure you want to delete this product?')) return;
 
-  try {
-    const res = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-    if (!res.ok) throw new Error('Failed to delete product');
-
-    document.getElementById('message').textContent = 'Product has been removed from the catalog.';
-    document.getElementById('delete-btn').style.display = 'none';
-  } catch (error) {
-    console.error(error);
-    alert('Failed to delete product.');
-  }
+  fetch(`${API_URL}/${id}`, { method: 'DELETE' })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Failed to delete product');
+      }
+    })
+    .then(() => {
+      document.getElementById('message').textContent =
+        'Product has been removed from the catalog.';
+      document.getElementById('delete-btn').style.display = 'none';
+    })
+    .catch(error => {
+      console.error(error);
+      alert('Failed to delete product.');
+    });
 }
 
 fetchProduct();
