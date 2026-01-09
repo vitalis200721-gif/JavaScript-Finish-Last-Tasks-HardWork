@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Product</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+   <header>
+    <h1>Add New Product</h1>
+  </header>
+
+  <main>
+    <form id="add-product-form" style="max-width: 500px; margin: auto;">
+      <label>Title:</label>
+      <input type="text" id="title" required pattern=".{2,}" placeholder="Product name" />
+
+      <label>Price (€):</label>
+      <input type="number" id="price" required min="0" placeholder="Price" />
+
+      <label>Image URL:</label>
+      <input type="url" id="image" required placeholder="https://example.com/photo.jpg" />
+
+      <label>Description:</label>
+      <textarea id="description" required placeholder="Description"></textarea>
+
+      <label>Location:</label>
+      <input type="text" id="location" required pattern=".{2,}" placeholder="Location" />
+
+      <button type="submit">Add Product</button>
+      <button type="button" id="back-btn">Back to Catalog</button>
+
+      <p id="message" style="margin-top: 10px; color: green;"></p>
+    </form>
+  </main>
+    
+  <script src="js/add.js"></script>
+</body>
+</html>
