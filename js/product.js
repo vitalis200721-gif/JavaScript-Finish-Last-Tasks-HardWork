@@ -53,24 +53,24 @@ function displayProduct(product) {
     });
 }
 
-function deleteProduct(id) {
+async function deleteProduct(id) {
   if (!confirm('Are you sure you want to delete this product?')) return;
 
-  fetch(`${API_URL}/${id}`, { method: 'DELETE' })
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('Failed to delete product');
-      }
-    })
-    .then(() => {
-      document.getElementById('message').textContent =
-        'Product has been removed from the catalog.';
-      document.getElementById('delete-btn').style.display = 'none';
-    })
-    .catch(error => {
-      console.error(error);
-      alert('Failed to delete product.');
-    });
+  try {
+    const res = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error('Failed to delete product');
+
+    document.getElementById('message').textContent =
+      'Product has been removed from the catalog.';
+    document.getElementById('delete-btn').style.display = 'none';
+    setTimeout(() => {
+    window.location.href = 'index.html';
+}, 1500);
+  } catch (error) {
+    console.error(error);
+    alert('Failed to delete product.');
+  }
 }
+
 
 fetchProduct();

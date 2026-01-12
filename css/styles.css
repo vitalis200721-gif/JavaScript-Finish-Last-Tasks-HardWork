@@ -96,7 +96,7 @@ header button:hover {
 }
 
 #product-details .product-image {
-  height: 600px;
+  height: 450px;
   object-fit: cover;
   border-radius: 6px 6px 0 0;
 }
