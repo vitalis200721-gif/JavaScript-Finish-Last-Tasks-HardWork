@@ -28,7 +28,7 @@ form.addEventListener('submit', (e) => {
   })
   .then(res => {
     if (!res.ok) throw new Error('Failed to add product');
-    return res.json(); // jei reikia duomenų
+    return res.json(); 
   })
   .then(data => {
     message.textContent = 'Product added successfully!';
